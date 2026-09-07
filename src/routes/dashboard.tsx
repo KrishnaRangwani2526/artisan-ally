@@ -113,7 +113,7 @@ function Dashboard() {
             label="Record Sale"
             sub={localLine(lang, "recordSale") ?? undefined}
             tone="accent"
-            onClick={() => toast.success("Sale recorded", { description: "₹1,249 added to today's sales." })}
+            onClick={() => { toast.success("Sale recorded", { description: "Rs 1,249 added to today’s sales." }); }}
           />
         </div>
       </section>
