@@ -161,7 +161,7 @@ export const aiService = {
 };
 
 function buildOutput(type: string, input: string, params: Record<string, string>) {
-  const tone = params.tone || "warm";
+  const tone = params['tone'] || "warm";
   switch (type) {
     case "LinkedIn Post":
       return `Four generations. One loom. \n\n${input}\n\nWe are a small artisan workshop in Bhilwara, Rajasthan, now selling directly to buyers for the first time. If your business gifts to clients, handmade tells a better story than anything off a shelf.\n\n#handmade #artisan #ruralenterprise`;
@@ -185,7 +185,7 @@ function buildOutput(type: string, input: string, params: Record<string, string>
       return `Catalogue page\n1. Handwoven Cotton Shawl — ₹1,249\n2. Terracotta Vase — ₹640\n3. Embroidered Bag — ₹389\n4. Handmade Cane Basket — ₹480\n5. Traditional Dupatta — ₹899`;
     case "Reel":
     case "Video":
-      return `Hook (0–2s): "Guess how long this takes."\nScene 1 (2–8s): hands on the loom\nScene 2 (8–15s): pattern forming, time-lapse\nScene 3 (15–20s): finished piece, price card\nVoiceover in ${params.language || "Hindi"}`;
+      return `Hook (0–2s): "Guess how long this takes."\nScene 1 (2–8s): hands on the loom\nScene 2 (8–15s): pattern forming, time-lapse\nScene 3 (15–20s): finished piece, price card\nVoiceover in ${params['language'] || "Hindi"}`;
     case "WhatsApp Promotion":
       return `Namaste 🙏\n${input.slice(0, 100)}\nReply "YES" for photos and price. Free delivery above ₹999.`;
     default:
