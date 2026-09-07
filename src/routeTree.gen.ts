@@ -10,33 +10,154 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as DashboardRouteImport } from './routes/dashboard'
+import { Route as AiStudioIndexRouteImport } from './routes/ai-studio.index'
+import { Route as AiStudioCatalogRouteImport } from './routes/ai-studio.catalog'
+import { Route as AiStudioContentRouteImport } from './routes/ai-studio.content'
+import { Route as AiStudioImageRouteImport } from './routes/ai-studio.image'
+import { Route as AiStudioPricingRouteImport } from './routes/ai-studio.pricing'
+import { Route as ProductsIndexRouteImport } from './routes/products.index'
+import { Route as ProductsIdRouteImport } from './routes/products.$id'
+import { Route as ProductsAddRouteImport } from './routes/products.add'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DashboardRoute = DashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AiStudioIndexRoute = AiStudioIndexRouteImport.update({
+  id: '/ai-studio/',
+  path: '/ai-studio/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AiStudioCatalogRoute = AiStudioCatalogRouteImport.update({
+  id: '/ai-studio/catalog',
+  path: '/ai-studio/catalog',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AiStudioContentRoute = AiStudioContentRouteImport.update({
+  id: '/ai-studio/content',
+  path: '/ai-studio/content',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AiStudioImageRoute = AiStudioImageRouteImport.update({
+  id: '/ai-studio/image',
+  path: '/ai-studio/image',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AiStudioPricingRoute = AiStudioPricingRouteImport.update({
+  id: '/ai-studio/pricing',
+  path: '/ai-studio/pricing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductsIndexRoute = ProductsIndexRouteImport.update({
+  id: '/products/',
+  path: '/products/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductsIdRoute = ProductsIdRouteImport.update({
+  id: '/products/$id',
+  path: '/products/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductsAddRoute = ProductsAddRouteImport.update({
+  id: '/products/add',
+  path: '/products/add',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/dashboard': typeof DashboardRoute
+  '/ai-studio/catalog': typeof AiStudioCatalogRoute
+  '/ai-studio/content': typeof AiStudioContentRoute
+  '/ai-studio/image': typeof AiStudioImageRoute
+  '/ai-studio/pricing': typeof AiStudioPricingRoute
+  '/products/$id': typeof ProductsIdRoute
+  '/products/add': typeof ProductsAddRoute
+  '/ai-studio/': typeof AiStudioIndexRoute
+  '/products/': typeof ProductsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/dashboard': typeof DashboardRoute
+  '/ai-studio/catalog': typeof AiStudioCatalogRoute
+  '/ai-studio/content': typeof AiStudioContentRoute
+  '/ai-studio/image': typeof AiStudioImageRoute
+  '/ai-studio/pricing': typeof AiStudioPricingRoute
+  '/products/$id': typeof ProductsIdRoute
+  '/products/add': typeof ProductsAddRoute
+  '/ai-studio': typeof AiStudioIndexRoute
+  '/products': typeof ProductsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/dashboard': typeof DashboardRoute
+  '/ai-studio/catalog': typeof AiStudioCatalogRoute
+  '/ai-studio/content': typeof AiStudioContentRoute
+  '/ai-studio/image': typeof AiStudioImageRoute
+  '/ai-studio/pricing': typeof AiStudioPricingRoute
+  '/products/$id': typeof ProductsIdRoute
+  '/products/add': typeof ProductsAddRoute
+  '/ai-studio/': typeof AiStudioIndexRoute
+  '/products/': typeof ProductsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/dashboard'
+    | '/ai-studio/catalog'
+    | '/ai-studio/content'
+    | '/ai-studio/image'
+    | '/ai-studio/pricing'
+    | '/products/$id'
+    | '/products/add'
+    | '/ai-studio/'
+    | '/products/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/dashboard'
+    | '/ai-studio/catalog'
+    | '/ai-studio/content'
+    | '/ai-studio/image'
+    | '/ai-studio/pricing'
+    | '/products/$id'
+    | '/products/add'
+    | '/ai-studio'
+    | '/products'
+  id:
+    | '__root__'
+    | '/'
+    | '/dashboard'
+    | '/ai-studio/catalog'
+    | '/ai-studio/content'
+    | '/ai-studio/image'
+    | '/ai-studio/pricing'
+    | '/products/$id'
+    | '/products/add'
+    | '/ai-studio/'
+    | '/products/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  DashboardRoute: typeof DashboardRoute
+  AiStudioCatalogRoute: typeof AiStudioCatalogRoute
+  AiStudioContentRoute: typeof AiStudioContentRoute
+  AiStudioImageRoute: typeof AiStudioImageRoute
+  AiStudioPricingRoute: typeof AiStudioPricingRoute
+  ProductsIdRoute: typeof ProductsIdRoute
+  ProductsAddRoute: typeof ProductsAddRoute
+  AiStudioIndexRoute: typeof AiStudioIndexRoute
+  ProductsIndexRoute: typeof ProductsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +169,83 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/dashboard': {
+      id: '/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof DashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ai-studio/': {
+      id: '/ai-studio/'
+      path: '/ai-studio'
+      fullPath: '/ai-studio/'
+      preLoaderRoute: typeof AiStudioIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ai-studio/catalog': {
+      id: '/ai-studio/catalog'
+      path: '/ai-studio/catalog'
+      fullPath: '/ai-studio/catalog'
+      preLoaderRoute: typeof AiStudioCatalogRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ai-studio/content': {
+      id: '/ai-studio/content'
+      path: '/ai-studio/content'
+      fullPath: '/ai-studio/content'
+      preLoaderRoute: typeof AiStudioContentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ai-studio/image': {
+      id: '/ai-studio/image'
+      path: '/ai-studio/image'
+      fullPath: '/ai-studio/image'
+      preLoaderRoute: typeof AiStudioImageRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ai-studio/pricing': {
+      id: '/ai-studio/pricing'
+      path: '/ai-studio/pricing'
+      fullPath: '/ai-studio/pricing'
+      preLoaderRoute: typeof AiStudioPricingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/products/': {
+      id: '/products/'
+      path: '/products'
+      fullPath: '/products/'
+      preLoaderRoute: typeof ProductsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/products/$id': {
+      id: '/products/$id'
+      path: '/products/$id'
+      fullPath: '/products/$id'
+      preLoaderRoute: typeof ProductsIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/products/add': {
+      id: '/products/add'
+      path: '/products/add'
+      fullPath: '/products/add'
+      preLoaderRoute: typeof ProductsAddRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  DashboardRoute: DashboardRoute,
+  AiStudioCatalogRoute: AiStudioCatalogRoute,
+  AiStudioContentRoute: AiStudioContentRoute,
+  AiStudioImageRoute: AiStudioImageRoute,
+  AiStudioPricingRoute: AiStudioPricingRoute,
+  ProductsIdRoute: ProductsIdRoute,
+  ProductsAddRoute: ProductsAddRoute,
+  AiStudioIndexRoute: AiStudioIndexRoute,
+  ProductsIndexRoute: ProductsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
