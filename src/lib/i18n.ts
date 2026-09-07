@@ -95,7 +95,7 @@ const sub: Partial<Record<LangCode, Dict>> = {
 };
 
 export function t(lang: LangCode, key: keyof typeof en): string {
-  return sub[lang]?.[key] ?? en[key];
+  return sub[lang]?.[key] ?? en[key] ?? String(key);
 }
 
 /** Second line shown under English labels for low-literacy support. */
