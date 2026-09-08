@@ -10,12 +10,17 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AnalyticsRouteImport } from './routes/analytics'
+import { Route as BusinessRouteImport } from './routes/business'
 import { Route as DashboardRouteImport } from './routes/dashboard'
+import { Route as NotificationsRouteImport } from './routes/notifications'
 import { Route as AiStudioIndexRouteImport } from './routes/ai-studio.index'
 import { Route as AiStudioCatalogRouteImport } from './routes/ai-studio.catalog'
 import { Route as AiStudioContentRouteImport } from './routes/ai-studio.content'
 import { Route as AiStudioImageRouteImport } from './routes/ai-studio.image'
 import { Route as AiStudioPricingRouteImport } from './routes/ai-studio.pricing'
+import { Route as MarketingIndexRouteImport } from './routes/marketing.index'
+import { Route as MarketingAdvertisementRouteImport } from './routes/marketing.advertisement'
 import { Route as ProductsIndexRouteImport } from './routes/products.index'
 import { Route as ProductsIdRouteImport } from './routes/products.$id'
 import { Route as ProductsAddRouteImport } from './routes/products.add'
@@ -25,9 +30,24 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AnalyticsRoute = AnalyticsRouteImport.update({
+  id: '/analytics',
+  path: '/analytics',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BusinessRoute = BusinessRouteImport.update({
+  id: '/business',
+  path: '/business',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DashboardRoute = DashboardRouteImport.update({
   id: '/dashboard',
   path: '/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NotificationsRoute = NotificationsRouteImport.update({
+  id: '/notifications',
+  path: '/notifications',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AiStudioIndexRoute = AiStudioIndexRouteImport.update({
@@ -55,6 +75,16 @@ const AiStudioPricingRoute = AiStudioPricingRouteImport.update({
   path: '/ai-studio/pricing',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MarketingIndexRoute = MarketingIndexRouteImport.update({
+  id: '/marketing/',
+  path: '/marketing/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MarketingAdvertisementRoute = MarketingAdvertisementRouteImport.update({
+  id: '/marketing/advertisement',
+  path: '/marketing/advertisement',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProductsIndexRoute = ProductsIndexRouteImport.update({
   id: '/products/',
   path: '/products/',
@@ -73,90 +103,125 @@ const ProductsAddRoute = ProductsAddRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/analytics': typeof AnalyticsRoute
+  '/business': typeof BusinessRoute
   '/dashboard': typeof DashboardRoute
+  '/notifications': typeof NotificationsRoute
   '/ai-studio/catalog': typeof AiStudioCatalogRoute
   '/ai-studio/content': typeof AiStudioContentRoute
   '/ai-studio/image': typeof AiStudioImageRoute
   '/ai-studio/pricing': typeof AiStudioPricingRoute
+  '/marketing/advertisement': typeof MarketingAdvertisementRoute
   '/products/$id': typeof ProductsIdRoute
   '/products/add': typeof ProductsAddRoute
   '/ai-studio/': typeof AiStudioIndexRoute
+  '/marketing/': typeof MarketingIndexRoute
   '/products/': typeof ProductsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/analytics': typeof AnalyticsRoute
+  '/business': typeof BusinessRoute
   '/dashboard': typeof DashboardRoute
+  '/notifications': typeof NotificationsRoute
   '/ai-studio/catalog': typeof AiStudioCatalogRoute
   '/ai-studio/content': typeof AiStudioContentRoute
   '/ai-studio/image': typeof AiStudioImageRoute
   '/ai-studio/pricing': typeof AiStudioPricingRoute
+  '/marketing/advertisement': typeof MarketingAdvertisementRoute
   '/products/$id': typeof ProductsIdRoute
   '/products/add': typeof ProductsAddRoute
   '/ai-studio': typeof AiStudioIndexRoute
+  '/marketing': typeof MarketingIndexRoute
   '/products': typeof ProductsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/analytics': typeof AnalyticsRoute
+  '/business': typeof BusinessRoute
   '/dashboard': typeof DashboardRoute
+  '/notifications': typeof NotificationsRoute
   '/ai-studio/catalog': typeof AiStudioCatalogRoute
   '/ai-studio/content': typeof AiStudioContentRoute
   '/ai-studio/image': typeof AiStudioImageRoute
   '/ai-studio/pricing': typeof AiStudioPricingRoute
+  '/marketing/advertisement': typeof MarketingAdvertisementRoute
   '/products/$id': typeof ProductsIdRoute
   '/products/add': typeof ProductsAddRoute
   '/ai-studio/': typeof AiStudioIndexRoute
+  '/marketing/': typeof MarketingIndexRoute
   '/products/': typeof ProductsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/analytics'
+    | '/business'
     | '/dashboard'
+    | '/notifications'
     | '/ai-studio/catalog'
     | '/ai-studio/content'
     | '/ai-studio/image'
     | '/ai-studio/pricing'
+    | '/marketing/advertisement'
     | '/products/$id'
     | '/products/add'
     | '/ai-studio/'
+    | '/marketing/'
     | '/products/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/analytics'
+    | '/business'
     | '/dashboard'
+    | '/notifications'
     | '/ai-studio/catalog'
     | '/ai-studio/content'
     | '/ai-studio/image'
     | '/ai-studio/pricing'
+    | '/marketing/advertisement'
     | '/products/$id'
     | '/products/add'
     | '/ai-studio'
+    | '/marketing'
     | '/products'
   id:
     | '__root__'
     | '/'
+    | '/analytics'
+    | '/business'
     | '/dashboard'
+    | '/notifications'
     | '/ai-studio/catalog'
     | '/ai-studio/content'
     | '/ai-studio/image'
     | '/ai-studio/pricing'
+    | '/marketing/advertisement'
     | '/products/$id'
     | '/products/add'
     | '/ai-studio/'
+    | '/marketing/'
     | '/products/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AnalyticsRoute: typeof AnalyticsRoute
+  BusinessRoute: typeof BusinessRoute
   DashboardRoute: typeof DashboardRoute
+  NotificationsRoute: typeof NotificationsRoute
   AiStudioCatalogRoute: typeof AiStudioCatalogRoute
   AiStudioContentRoute: typeof AiStudioContentRoute
   AiStudioImageRoute: typeof AiStudioImageRoute
   AiStudioPricingRoute: typeof AiStudioPricingRoute
+  MarketingAdvertisementRoute: typeof MarketingAdvertisementRoute
   ProductsIdRoute: typeof ProductsIdRoute
   ProductsAddRoute: typeof ProductsAddRoute
   AiStudioIndexRoute: typeof AiStudioIndexRoute
+  MarketingIndexRoute: typeof MarketingIndexRoute
   ProductsIndexRoute: typeof ProductsIndexRoute
 }
 
@@ -169,11 +234,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/analytics': {
+      id: '/analytics'
+      path: '/analytics'
+      fullPath: '/analytics'
+      preLoaderRoute: typeof AnalyticsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/business': {
+      id: '/business'
+      path: '/business'
+      fullPath: '/business'
+      preLoaderRoute: typeof BusinessRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/dashboard': {
       id: '/dashboard'
       path: '/dashboard'
       fullPath: '/dashboard'
       preLoaderRoute: typeof DashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/notifications': {
+      id: '/notifications'
+      path: '/notifications'
+      fullPath: '/notifications'
+      preLoaderRoute: typeof NotificationsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/ai-studio/': {
@@ -211,6 +297,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AiStudioPricingRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/marketing/': {
+      id: '/marketing/'
+      path: '/marketing'
+      fullPath: '/marketing/'
+      preLoaderRoute: typeof MarketingIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/marketing/advertisement': {
+      id: '/marketing/advertisement'
+      path: '/marketing/advertisement'
+      fullPath: '/marketing/advertisement'
+      preLoaderRoute: typeof MarketingAdvertisementRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/products/': {
       id: '/products/'
       path: '/products'
@@ -237,14 +337,19 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AnalyticsRoute: AnalyticsRoute,
+  BusinessRoute: BusinessRoute,
   DashboardRoute: DashboardRoute,
+  NotificationsRoute: NotificationsRoute,
   AiStudioCatalogRoute: AiStudioCatalogRoute,
   AiStudioContentRoute: AiStudioContentRoute,
   AiStudioImageRoute: AiStudioImageRoute,
   AiStudioPricingRoute: AiStudioPricingRoute,
+  MarketingAdvertisementRoute: MarketingAdvertisementRoute,
   ProductsIdRoute: ProductsIdRoute,
   ProductsAddRoute: ProductsAddRoute,
   AiStudioIndexRoute: AiStudioIndexRoute,
+  MarketingIndexRoute: MarketingIndexRoute,
   ProductsIndexRoute: ProductsIndexRoute,
 }
 export const routeTree = rootRouteImport
