@@ -31,8 +31,8 @@ export const Route = createFileRoute("/analytics")({
 
 function AnalyticsPage() {
   const { state } = useApp();
-  const totalSales = MONTHLY_SALES.reduce((s, m) => s + m.sales, 0);
-  const bestMonth = [...MONTHLY_SALES].sort((a, b) => b.sales - a.sales)[0];
+  const totalSales = MONTHLY_SALES.reduce((s, m) => s + m.revenue, 0);
+  const bestMonth = [...MONTHLY_SALES].sort((a, b) => b.revenue - a.revenue)[0];
   const productData = state.products.map((p) => ({ name: p.name.split(" ")[0] ?? p.name, sold: p.sold }));
   const best = [...state.products].sort((a, b) => b.sold - a.sold)[0];
 
@@ -42,7 +42,7 @@ function AnalyticsPage() {
 
       <div className="grid grid-cols-2 gap-3">
         <StatCard label="Sales (6 months)" value={inr(totalSales)} hint="+18% vs last period" tone="good" />
-        <StatCard label="Best month" value={bestMonth?.month ?? "—"} hint={inr(bestMonth?.sales ?? 0)} tone="primary" />
+        <StatCard label="Best month" value={bestMonth?.month ?? "—"} hint={inr(bestMonth?.revenue ?? 0)} tone="primary" />
         <StatCard label="Pieces sold" value={String(state.products.reduce((s, p) => s + p.sold, 0))} hint="All products" />
         <StatCard label="Top product" value={best?.name.split(" ")[0] ?? "—"} hint={`${best?.sold ?? 0} sold`} tone="accent" />
       </div>
@@ -67,7 +67,7 @@ function AnalyticsPage() {
                 formatter={(v: number) => inr(v)}
                 contentStyle={{ borderRadius: 14, border: "1px solid var(--color-line)", fontSize: 12 }}
               />
-              <Area type="monotone" dataKey="sales" stroke="var(--color-primary)" strokeWidth={2.5} fill="url(#salesFill)" />
+              <Area type="monotone" dataKey="revenue" stroke="var(--color-primary)" strokeWidth={2.5} fill="url(#salesFill)" />
             </AreaChart>
           </ResponsiveContainer>
         </div>
