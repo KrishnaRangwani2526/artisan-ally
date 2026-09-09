@@ -16,19 +16,26 @@ import { AppProvider } from "@/lib/store";
 
 function NotFoundComponent() {
   return (
-    <div className="page-glow flex min-h-screen items-center justify-center bg-background px-4">
-      <div className="frost-card max-w-md p-8 text-center">
-        <h1 className="font-mono text-6xl font-bold text-primary">404</h1>
-        <h2 className="mt-4 text-xl font-semibold">Page not found</h2>
-        <p className="mt-2 text-sm text-muted-foreground">
-          This page doesn't exist. Let's take you back to your dashboard.
+    <div className="page-glow flex min-h-screen items-center justify-center bg-background px-5">
+      <div className="frost-card w-full max-w-md p-8 text-center">
+        <span className="mx-auto grid size-16 place-items-center rounded-3xl bg-warn-soft text-3xl">⏳</span>
+        <h1 className="mt-4 text-[22px] leading-tight font-bold">Upcoming feature</h1>
+        <p className="mt-2 text-[14px] leading-relaxed text-muted-foreground">
+          This part of Kalaa Setu is still being built. It will arrive in a coming update — everything else in the app
+          works today.
         </p>
-        <div className="mt-6">
+        <div className="mt-6 flex flex-wrap justify-center gap-2">
           <Link
             to="/dashboard"
-            className="inline-flex min-h-12 items-center justify-center rounded-2xl bg-primary px-5 text-sm font-semibold text-primary-foreground"
+            className="inline-flex min-h-12 items-center justify-center rounded-2xl bg-primary px-5 text-[15px] font-semibold text-primary-foreground"
           >
-            Go to dashboard
+            Go to my dashboard
+          </Link>
+          <Link
+            to="/products"
+            className="inline-flex min-h-12 items-center justify-center rounded-2xl bg-surface-2 px-5 text-[15px] font-semibold ring-1 ring-line"
+          >
+            My products
           </Link>
         </div>
       </div>
