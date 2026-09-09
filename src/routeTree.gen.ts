@@ -19,8 +19,13 @@ import { Route as AiStudioCatalogRouteImport } from './routes/ai-studio.catalog'
 import { Route as AiStudioContentRouteImport } from './routes/ai-studio.content'
 import { Route as AiStudioImageRouteImport } from './routes/ai-studio.image'
 import { Route as AiStudioPricingRouteImport } from './routes/ai-studio.pricing'
+import { Route as FinanceIndexRouteImport } from './routes/finance.index'
+import { Route as FinancePnlRouteImport } from './routes/finance.pnl'
+import { Route as InventoryIndexRouteImport } from './routes/inventory.index'
+import { Route as InventoryForecastRouteImport } from './routes/inventory.forecast'
 import { Route as MarketingIndexRouteImport } from './routes/marketing.index'
 import { Route as MarketingAdvertisementRouteImport } from './routes/marketing.advertisement'
+import { Route as MarketingReelRouteImport } from './routes/marketing.reel'
 import { Route as ProductsIndexRouteImport } from './routes/products.index'
 import { Route as ProductsIdRouteImport } from './routes/products.$id'
 import { Route as ProductsAddRouteImport } from './routes/products.add'
@@ -75,6 +80,26 @@ const AiStudioPricingRoute = AiStudioPricingRouteImport.update({
   path: '/ai-studio/pricing',
   getParentRoute: () => rootRouteImport,
 } as any)
+const FinanceIndexRoute = FinanceIndexRouteImport.update({
+  id: '/finance/',
+  path: '/finance/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FinancePnlRoute = FinancePnlRouteImport.update({
+  id: '/finance/pnl',
+  path: '/finance/pnl',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InventoryIndexRoute = InventoryIndexRouteImport.update({
+  id: '/inventory/',
+  path: '/inventory/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InventoryForecastRoute = InventoryForecastRouteImport.update({
+  id: '/inventory/forecast',
+  path: '/inventory/forecast',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const MarketingIndexRoute = MarketingIndexRouteImport.update({
   id: '/marketing/',
   path: '/marketing/',
@@ -83,6 +108,11 @@ const MarketingIndexRoute = MarketingIndexRouteImport.update({
 const MarketingAdvertisementRoute = MarketingAdvertisementRouteImport.update({
   id: '/marketing/advertisement',
   path: '/marketing/advertisement',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MarketingReelRoute = MarketingReelRouteImport.update({
+  id: '/marketing/reel',
+  path: '/marketing/reel',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ProductsIndexRoute = ProductsIndexRouteImport.update({
@@ -111,10 +141,15 @@ export interface FileRoutesByFullPath {
   '/ai-studio/content': typeof AiStudioContentRoute
   '/ai-studio/image': typeof AiStudioImageRoute
   '/ai-studio/pricing': typeof AiStudioPricingRoute
+  '/finance/pnl': typeof FinancePnlRoute
+  '/inventory/forecast': typeof InventoryForecastRoute
   '/marketing/advertisement': typeof MarketingAdvertisementRoute
+  '/marketing/reel': typeof MarketingReelRoute
   '/products/$id': typeof ProductsIdRoute
   '/products/add': typeof ProductsAddRoute
   '/ai-studio/': typeof AiStudioIndexRoute
+  '/finance/': typeof FinanceIndexRoute
+  '/inventory/': typeof InventoryIndexRoute
   '/marketing/': typeof MarketingIndexRoute
   '/products/': typeof ProductsIndexRoute
 }
@@ -128,10 +163,15 @@ export interface FileRoutesByTo {
   '/ai-studio/content': typeof AiStudioContentRoute
   '/ai-studio/image': typeof AiStudioImageRoute
   '/ai-studio/pricing': typeof AiStudioPricingRoute
+  '/finance/pnl': typeof FinancePnlRoute
+  '/inventory/forecast': typeof InventoryForecastRoute
   '/marketing/advertisement': typeof MarketingAdvertisementRoute
+  '/marketing/reel': typeof MarketingReelRoute
   '/products/$id': typeof ProductsIdRoute
   '/products/add': typeof ProductsAddRoute
   '/ai-studio': typeof AiStudioIndexRoute
+  '/finance': typeof FinanceIndexRoute
+  '/inventory': typeof InventoryIndexRoute
   '/marketing': typeof MarketingIndexRoute
   '/products': typeof ProductsIndexRoute
 }
@@ -146,10 +186,15 @@ export interface FileRoutesById {
   '/ai-studio/content': typeof AiStudioContentRoute
   '/ai-studio/image': typeof AiStudioImageRoute
   '/ai-studio/pricing': typeof AiStudioPricingRoute
+  '/finance/pnl': typeof FinancePnlRoute
+  '/inventory/forecast': typeof InventoryForecastRoute
   '/marketing/advertisement': typeof MarketingAdvertisementRoute
+  '/marketing/reel': typeof MarketingReelRoute
   '/products/$id': typeof ProductsIdRoute
   '/products/add': typeof ProductsAddRoute
   '/ai-studio/': typeof AiStudioIndexRoute
+  '/finance/': typeof FinanceIndexRoute
+  '/inventory/': typeof InventoryIndexRoute
   '/marketing/': typeof MarketingIndexRoute
   '/products/': typeof ProductsIndexRoute
 }
@@ -165,10 +210,15 @@ export interface FileRouteTypes {
     | '/ai-studio/content'
     | '/ai-studio/image'
     | '/ai-studio/pricing'
+    | '/finance/pnl'
+    | '/inventory/forecast'
     | '/marketing/advertisement'
+    | '/marketing/reel'
     | '/products/$id'
     | '/products/add'
     | '/ai-studio/'
+    | '/finance/'
+    | '/inventory/'
     | '/marketing/'
     | '/products/'
   fileRoutesByTo: FileRoutesByTo
@@ -182,10 +232,15 @@ export interface FileRouteTypes {
     | '/ai-studio/content'
     | '/ai-studio/image'
     | '/ai-studio/pricing'
+    | '/finance/pnl'
+    | '/inventory/forecast'
     | '/marketing/advertisement'
+    | '/marketing/reel'
     | '/products/$id'
     | '/products/add'
     | '/ai-studio'
+    | '/finance'
+    | '/inventory'
     | '/marketing'
     | '/products'
   id:
@@ -199,10 +254,15 @@ export interface FileRouteTypes {
     | '/ai-studio/content'
     | '/ai-studio/image'
     | '/ai-studio/pricing'
+    | '/finance/pnl'
+    | '/inventory/forecast'
     | '/marketing/advertisement'
+    | '/marketing/reel'
     | '/products/$id'
     | '/products/add'
     | '/ai-studio/'
+    | '/finance/'
+    | '/inventory/'
     | '/marketing/'
     | '/products/'
   fileRoutesById: FileRoutesById
@@ -217,10 +277,15 @@ export interface RootRouteChildren {
   AiStudioContentRoute: typeof AiStudioContentRoute
   AiStudioImageRoute: typeof AiStudioImageRoute
   AiStudioPricingRoute: typeof AiStudioPricingRoute
+  FinancePnlRoute: typeof FinancePnlRoute
+  InventoryForecastRoute: typeof InventoryForecastRoute
   MarketingAdvertisementRoute: typeof MarketingAdvertisementRoute
+  MarketingReelRoute: typeof MarketingReelRoute
   ProductsIdRoute: typeof ProductsIdRoute
   ProductsAddRoute: typeof ProductsAddRoute
   AiStudioIndexRoute: typeof AiStudioIndexRoute
+  FinanceIndexRoute: typeof FinanceIndexRoute
+  InventoryIndexRoute: typeof InventoryIndexRoute
   MarketingIndexRoute: typeof MarketingIndexRoute
   ProductsIndexRoute: typeof ProductsIndexRoute
 }
@@ -297,6 +362,34 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AiStudioPricingRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/finance/': {
+      id: '/finance/'
+      path: '/finance'
+      fullPath: '/finance/'
+      preLoaderRoute: typeof FinanceIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/finance/pnl': {
+      id: '/finance/pnl'
+      path: '/finance/pnl'
+      fullPath: '/finance/pnl'
+      preLoaderRoute: typeof FinancePnlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/inventory/': {
+      id: '/inventory/'
+      path: '/inventory'
+      fullPath: '/inventory/'
+      preLoaderRoute: typeof InventoryIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/inventory/forecast': {
+      id: '/inventory/forecast'
+      path: '/inventory/forecast'
+      fullPath: '/inventory/forecast'
+      preLoaderRoute: typeof InventoryForecastRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/marketing/': {
       id: '/marketing/'
       path: '/marketing'
@@ -309,6 +402,13 @@ declare module '@tanstack/react-router' {
       path: '/marketing/advertisement'
       fullPath: '/marketing/advertisement'
       preLoaderRoute: typeof MarketingAdvertisementRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/marketing/reel': {
+      id: '/marketing/reel'
+      path: '/marketing/reel'
+      fullPath: '/marketing/reel'
+      preLoaderRoute: typeof MarketingReelRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/products/': {
@@ -345,10 +445,15 @@ const rootRouteChildren: RootRouteChildren = {
   AiStudioContentRoute: AiStudioContentRoute,
   AiStudioImageRoute: AiStudioImageRoute,
   AiStudioPricingRoute: AiStudioPricingRoute,
+  FinancePnlRoute: FinancePnlRoute,
+  InventoryForecastRoute: InventoryForecastRoute,
   MarketingAdvertisementRoute: MarketingAdvertisementRoute,
+  MarketingReelRoute: MarketingReelRoute,
   ProductsIdRoute: ProductsIdRoute,
   ProductsAddRoute: ProductsAddRoute,
   AiStudioIndexRoute: AiStudioIndexRoute,
+  FinanceIndexRoute: FinanceIndexRoute,
+  InventoryIndexRoute: InventoryIndexRoute,
   MarketingIndexRoute: MarketingIndexRoute,
   ProductsIndexRoute: ProductsIndexRoute,
 }
