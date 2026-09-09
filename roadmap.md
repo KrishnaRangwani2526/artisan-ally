@@ -16,3 +16,5 @@
 
 ## Open tasks
 - Bilingual UI: English as main text, selected language shown in smaller text under it, across every screen (headers, labels, buttons, questions, forms).
+- Replace the 404 page with a friendly "Upcoming feature" screen (in-app shell, links back).
+- Every button on every page must do something: navigate, calculate, change state or show Upcoming.
