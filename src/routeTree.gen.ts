@@ -14,6 +14,7 @@ import { Route as AnalyticsRouteImport } from './routes/analytics'
 import { Route as BusinessRouteImport } from './routes/business'
 import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as NotificationsRouteImport } from './routes/notifications'
+import { Route as OrdersRouteImport } from './routes/orders'
 import { Route as AdvisorIndexRouteImport } from './routes/advisor.index'
 import { Route as AdvisorCompetitorsRouteImport } from './routes/advisor.competitors'
 import { Route as AdvisorMarketRouteImport } from './routes/advisor.market'
@@ -35,6 +36,10 @@ import { Route as MarketingReelRouteImport } from './routes/marketing.reel'
 import { Route as ProductsIndexRouteImport } from './routes/products.index'
 import { Route as ProductsIdRouteImport } from './routes/products.$id'
 import { Route as ProductsAddRouteImport } from './routes/products.add'
+import { Route as StoreIndexRouteImport } from './routes/store.index'
+import { Route as StoreCreateRouteImport } from './routes/store.create'
+import { Route as StoreCustomizeRouteImport } from './routes/store.customize'
+import { Route as StorePreviewRouteImport } from './routes/store.preview'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -59,6 +64,11 @@ const DashboardRoute = DashboardRouteImport.update({
 const NotificationsRoute = NotificationsRouteImport.update({
   id: '/notifications',
   path: '/notifications',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OrdersRoute = OrdersRouteImport.update({
+  id: '/orders',
+  path: '/orders',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AdvisorIndexRoute = AdvisorIndexRouteImport.update({
@@ -166,6 +176,26 @@ const ProductsAddRoute = ProductsAddRouteImport.update({
   path: '/products/add',
   getParentRoute: () => rootRouteImport,
 } as any)
+const StoreIndexRoute = StoreIndexRouteImport.update({
+  id: '/store/',
+  path: '/store/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StoreCreateRoute = StoreCreateRouteImport.update({
+  id: '/store/create',
+  path: '/store/create',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StoreCustomizeRoute = StoreCustomizeRouteImport.update({
+  id: '/store/customize',
+  path: '/store/customize',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StorePreviewRoute = StorePreviewRouteImport.update({
+  id: '/store/preview',
+  path: '/store/preview',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -173,6 +203,7 @@ export interface FileRoutesByFullPath {
   '/business': typeof BusinessRoute
   '/dashboard': typeof DashboardRoute
   '/notifications': typeof NotificationsRoute
+  '/orders': typeof OrdersRoute
   '/advisor/competitors': typeof AdvisorCompetitorsRoute
   '/advisor/market': typeof AdvisorMarketRoute
   '/advisor/swot': typeof AdvisorSwotRoute
@@ -188,12 +219,16 @@ export interface FileRoutesByFullPath {
   '/marketing/reel': typeof MarketingReelRoute
   '/products/$id': typeof ProductsIdRoute
   '/products/add': typeof ProductsAddRoute
+  '/store/create': typeof StoreCreateRoute
+  '/store/customize': typeof StoreCustomizeRoute
+  '/store/preview': typeof StorePreviewRoute
   '/advisor/': typeof AdvisorIndexRoute
   '/ai-studio/': typeof AiStudioIndexRoute
   '/finance/': typeof FinanceIndexRoute
   '/inventory/': typeof InventoryIndexRoute
   '/marketing/': typeof MarketingIndexRoute
   '/products/': typeof ProductsIndexRoute
+  '/store/': typeof StoreIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -201,6 +236,7 @@ export interface FileRoutesByTo {
   '/business': typeof BusinessRoute
   '/dashboard': typeof DashboardRoute
   '/notifications': typeof NotificationsRoute
+  '/orders': typeof OrdersRoute
   '/advisor/competitors': typeof AdvisorCompetitorsRoute
   '/advisor/market': typeof AdvisorMarketRoute
   '/advisor/swot': typeof AdvisorSwotRoute
@@ -216,12 +252,16 @@ export interface FileRoutesByTo {
   '/marketing/reel': typeof MarketingReelRoute
   '/products/$id': typeof ProductsIdRoute
   '/products/add': typeof ProductsAddRoute
+  '/store/create': typeof StoreCreateRoute
+  '/store/customize': typeof StoreCustomizeRoute
+  '/store/preview': typeof StorePreviewRoute
   '/advisor': typeof AdvisorIndexRoute
   '/ai-studio': typeof AiStudioIndexRoute
   '/finance': typeof FinanceIndexRoute
   '/inventory': typeof InventoryIndexRoute
   '/marketing': typeof MarketingIndexRoute
   '/products': typeof ProductsIndexRoute
+  '/store': typeof StoreIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -230,6 +270,7 @@ export interface FileRoutesById {
   '/business': typeof BusinessRoute
   '/dashboard': typeof DashboardRoute
   '/notifications': typeof NotificationsRoute
+  '/orders': typeof OrdersRoute
   '/advisor/competitors': typeof AdvisorCompetitorsRoute
   '/advisor/market': typeof AdvisorMarketRoute
   '/advisor/swot': typeof AdvisorSwotRoute
@@ -245,12 +286,16 @@ export interface FileRoutesById {
   '/marketing/reel': typeof MarketingReelRoute
   '/products/$id': typeof ProductsIdRoute
   '/products/add': typeof ProductsAddRoute
+  '/store/create': typeof StoreCreateRoute
+  '/store/customize': typeof StoreCustomizeRoute
+  '/store/preview': typeof StorePreviewRoute
   '/advisor/': typeof AdvisorIndexRoute
   '/ai-studio/': typeof AiStudioIndexRoute
   '/finance/': typeof FinanceIndexRoute
   '/inventory/': typeof InventoryIndexRoute
   '/marketing/': typeof MarketingIndexRoute
   '/products/': typeof ProductsIndexRoute
+  '/store/': typeof StoreIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -260,6 +305,7 @@ export interface FileRouteTypes {
     | '/business'
     | '/dashboard'
     | '/notifications'
+    | '/orders'
     | '/advisor/competitors'
     | '/advisor/market'
     | '/advisor/swot'
@@ -275,12 +321,16 @@ export interface FileRouteTypes {
     | '/marketing/reel'
     | '/products/$id'
     | '/products/add'
+    | '/store/create'
+    | '/store/customize'
+    | '/store/preview'
     | '/advisor/'
     | '/ai-studio/'
     | '/finance/'
     | '/inventory/'
     | '/marketing/'
     | '/products/'
+    | '/store/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -288,6 +338,7 @@ export interface FileRouteTypes {
     | '/business'
     | '/dashboard'
     | '/notifications'
+    | '/orders'
     | '/advisor/competitors'
     | '/advisor/market'
     | '/advisor/swot'
@@ -303,12 +354,16 @@ export interface FileRouteTypes {
     | '/marketing/reel'
     | '/products/$id'
     | '/products/add'
+    | '/store/create'
+    | '/store/customize'
+    | '/store/preview'
     | '/advisor'
     | '/ai-studio'
     | '/finance'
     | '/inventory'
     | '/marketing'
     | '/products'
+    | '/store'
   id:
     | '__root__'
     | '/'
@@ -316,6 +371,7 @@ export interface FileRouteTypes {
     | '/business'
     | '/dashboard'
     | '/notifications'
+    | '/orders'
     | '/advisor/competitors'
     | '/advisor/market'
     | '/advisor/swot'
@@ -331,12 +387,16 @@ export interface FileRouteTypes {
     | '/marketing/reel'
     | '/products/$id'
     | '/products/add'
+    | '/store/create'
+    | '/store/customize'
+    | '/store/preview'
     | '/advisor/'
     | '/ai-studio/'
     | '/finance/'
     | '/inventory/'
     | '/marketing/'
     | '/products/'
+    | '/store/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -345,6 +405,7 @@ export interface RootRouteChildren {
   BusinessRoute: typeof BusinessRoute
   DashboardRoute: typeof DashboardRoute
   NotificationsRoute: typeof NotificationsRoute
+  OrdersRoute: typeof OrdersRoute
   AdvisorCompetitorsRoute: typeof AdvisorCompetitorsRoute
   AdvisorMarketRoute: typeof AdvisorMarketRoute
   AdvisorSwotRoute: typeof AdvisorSwotRoute
@@ -360,12 +421,16 @@ export interface RootRouteChildren {
   MarketingReelRoute: typeof MarketingReelRoute
   ProductsIdRoute: typeof ProductsIdRoute
   ProductsAddRoute: typeof ProductsAddRoute
+  StoreCreateRoute: typeof StoreCreateRoute
+  StoreCustomizeRoute: typeof StoreCustomizeRoute
+  StorePreviewRoute: typeof StorePreviewRoute
   AdvisorIndexRoute: typeof AdvisorIndexRoute
   AiStudioIndexRoute: typeof AiStudioIndexRoute
   FinanceIndexRoute: typeof FinanceIndexRoute
   InventoryIndexRoute: typeof InventoryIndexRoute
   MarketingIndexRoute: typeof MarketingIndexRoute
   ProductsIndexRoute: typeof ProductsIndexRoute
+  StoreIndexRoute: typeof StoreIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -403,6 +468,13 @@ declare module '@tanstack/react-router' {
       path: '/notifications'
       fullPath: '/notifications'
       preLoaderRoute: typeof NotificationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/orders': {
+      id: '/orders'
+      path: '/orders'
+      fullPath: '/orders'
+      preLoaderRoute: typeof OrdersRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/advisor/': {
@@ -552,6 +624,34 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProductsAddRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/store/': {
+      id: '/store/'
+      path: '/store'
+      fullPath: '/store/'
+      preLoaderRoute: typeof StoreIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/store/create': {
+      id: '/store/create'
+      path: '/store/create'
+      fullPath: '/store/create'
+      preLoaderRoute: typeof StoreCreateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/store/customize': {
+      id: '/store/customize'
+      path: '/store/customize'
+      fullPath: '/store/customize'
+      preLoaderRoute: typeof StoreCustomizeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/store/preview': {
+      id: '/store/preview'
+      path: '/store/preview'
+      fullPath: '/store/preview'
+      preLoaderRoute: typeof StorePreviewRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -561,6 +661,7 @@ const rootRouteChildren: RootRouteChildren = {
   BusinessRoute: BusinessRoute,
   DashboardRoute: DashboardRoute,
   NotificationsRoute: NotificationsRoute,
+  OrdersRoute: OrdersRoute,
   AdvisorCompetitorsRoute: AdvisorCompetitorsRoute,
   AdvisorMarketRoute: AdvisorMarketRoute,
   AdvisorSwotRoute: AdvisorSwotRoute,
@@ -576,12 +677,16 @@ const rootRouteChildren: RootRouteChildren = {
   MarketingReelRoute: MarketingReelRoute,
   ProductsIdRoute: ProductsIdRoute,
   ProductsAddRoute: ProductsAddRoute,
+  StoreCreateRoute: StoreCreateRoute,
+  StoreCustomizeRoute: StoreCustomizeRoute,
+  StorePreviewRoute: StorePreviewRoute,
   AdvisorIndexRoute: AdvisorIndexRoute,
   AiStudioIndexRoute: AiStudioIndexRoute,
   FinanceIndexRoute: FinanceIndexRoute,
   InventoryIndexRoute: InventoryIndexRoute,
   MarketingIndexRoute: MarketingIndexRoute,
   ProductsIndexRoute: ProductsIndexRoute,
+  StoreIndexRoute: StoreIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
