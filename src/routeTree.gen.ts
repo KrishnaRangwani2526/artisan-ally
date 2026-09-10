@@ -14,13 +14,19 @@ import { Route as AnalyticsRouteImport } from './routes/analytics'
 import { Route as BusinessRouteImport } from './routes/business'
 import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as NotificationsRouteImport } from './routes/notifications'
+import { Route as AdvisorIndexRouteImport } from './routes/advisor.index'
+import { Route as AdvisorCompetitorsRouteImport } from './routes/advisor.competitors'
+import { Route as AdvisorMarketRouteImport } from './routes/advisor.market'
+import { Route as AdvisorSwotRouteImport } from './routes/advisor.swot'
 import { Route as AiStudioIndexRouteImport } from './routes/ai-studio.index'
 import { Route as AiStudioCatalogRouteImport } from './routes/ai-studio.catalog'
 import { Route as AiStudioContentRouteImport } from './routes/ai-studio.content'
 import { Route as AiStudioImageRouteImport } from './routes/ai-studio.image'
 import { Route as AiStudioPricingRouteImport } from './routes/ai-studio.pricing'
 import { Route as FinanceIndexRouteImport } from './routes/finance.index'
+import { Route as FinanceEmiRouteImport } from './routes/finance.emi'
 import { Route as FinancePnlRouteImport } from './routes/finance.pnl'
+import { Route as FinanceSchemeRouteImport } from './routes/finance.scheme'
 import { Route as InventoryIndexRouteImport } from './routes/inventory.index'
 import { Route as InventoryForecastRouteImport } from './routes/inventory.forecast'
 import { Route as MarketingIndexRouteImport } from './routes/marketing.index'
@@ -55,6 +61,26 @@ const NotificationsRoute = NotificationsRouteImport.update({
   path: '/notifications',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdvisorIndexRoute = AdvisorIndexRouteImport.update({
+  id: '/advisor/',
+  path: '/advisor/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdvisorCompetitorsRoute = AdvisorCompetitorsRouteImport.update({
+  id: '/advisor/competitors',
+  path: '/advisor/competitors',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdvisorMarketRoute = AdvisorMarketRouteImport.update({
+  id: '/advisor/market',
+  path: '/advisor/market',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdvisorSwotRoute = AdvisorSwotRouteImport.update({
+  id: '/advisor/swot',
+  path: '/advisor/swot',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AiStudioIndexRoute = AiStudioIndexRouteImport.update({
   id: '/ai-studio/',
   path: '/ai-studio/',
@@ -85,9 +111,19 @@ const FinanceIndexRoute = FinanceIndexRouteImport.update({
   path: '/finance/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const FinanceEmiRoute = FinanceEmiRouteImport.update({
+  id: '/finance/emi',
+  path: '/finance/emi',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const FinancePnlRoute = FinancePnlRouteImport.update({
   id: '/finance/pnl',
   path: '/finance/pnl',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FinanceSchemeRoute = FinanceSchemeRouteImport.update({
+  id: '/finance/scheme',
+  path: '/finance/scheme',
   getParentRoute: () => rootRouteImport,
 } as any)
 const InventoryIndexRoute = InventoryIndexRouteImport.update({
@@ -137,16 +173,22 @@ export interface FileRoutesByFullPath {
   '/business': typeof BusinessRoute
   '/dashboard': typeof DashboardRoute
   '/notifications': typeof NotificationsRoute
+  '/advisor/competitors': typeof AdvisorCompetitorsRoute
+  '/advisor/market': typeof AdvisorMarketRoute
+  '/advisor/swot': typeof AdvisorSwotRoute
   '/ai-studio/catalog': typeof AiStudioCatalogRoute
   '/ai-studio/content': typeof AiStudioContentRoute
   '/ai-studio/image': typeof AiStudioImageRoute
   '/ai-studio/pricing': typeof AiStudioPricingRoute
+  '/finance/emi': typeof FinanceEmiRoute
   '/finance/pnl': typeof FinancePnlRoute
+  '/finance/scheme': typeof FinanceSchemeRoute
   '/inventory/forecast': typeof InventoryForecastRoute
   '/marketing/advertisement': typeof MarketingAdvertisementRoute
   '/marketing/reel': typeof MarketingReelRoute
   '/products/$id': typeof ProductsIdRoute
   '/products/add': typeof ProductsAddRoute
+  '/advisor/': typeof AdvisorIndexRoute
   '/ai-studio/': typeof AiStudioIndexRoute
   '/finance/': typeof FinanceIndexRoute
   '/inventory/': typeof InventoryIndexRoute
@@ -159,16 +201,22 @@ export interface FileRoutesByTo {
   '/business': typeof BusinessRoute
   '/dashboard': typeof DashboardRoute
   '/notifications': typeof NotificationsRoute
+  '/advisor/competitors': typeof AdvisorCompetitorsRoute
+  '/advisor/market': typeof AdvisorMarketRoute
+  '/advisor/swot': typeof AdvisorSwotRoute
   '/ai-studio/catalog': typeof AiStudioCatalogRoute
   '/ai-studio/content': typeof AiStudioContentRoute
   '/ai-studio/image': typeof AiStudioImageRoute
   '/ai-studio/pricing': typeof AiStudioPricingRoute
+  '/finance/emi': typeof FinanceEmiRoute
   '/finance/pnl': typeof FinancePnlRoute
+  '/finance/scheme': typeof FinanceSchemeRoute
   '/inventory/forecast': typeof InventoryForecastRoute
   '/marketing/advertisement': typeof MarketingAdvertisementRoute
   '/marketing/reel': typeof MarketingReelRoute
   '/products/$id': typeof ProductsIdRoute
   '/products/add': typeof ProductsAddRoute
+  '/advisor': typeof AdvisorIndexRoute
   '/ai-studio': typeof AiStudioIndexRoute
   '/finance': typeof FinanceIndexRoute
   '/inventory': typeof InventoryIndexRoute
@@ -182,16 +230,22 @@ export interface FileRoutesById {
   '/business': typeof BusinessRoute
   '/dashboard': typeof DashboardRoute
   '/notifications': typeof NotificationsRoute
+  '/advisor/competitors': typeof AdvisorCompetitorsRoute
+  '/advisor/market': typeof AdvisorMarketRoute
+  '/advisor/swot': typeof AdvisorSwotRoute
   '/ai-studio/catalog': typeof AiStudioCatalogRoute
   '/ai-studio/content': typeof AiStudioContentRoute
   '/ai-studio/image': typeof AiStudioImageRoute
   '/ai-studio/pricing': typeof AiStudioPricingRoute
+  '/finance/emi': typeof FinanceEmiRoute
   '/finance/pnl': typeof FinancePnlRoute
+  '/finance/scheme': typeof FinanceSchemeRoute
   '/inventory/forecast': typeof InventoryForecastRoute
   '/marketing/advertisement': typeof MarketingAdvertisementRoute
   '/marketing/reel': typeof MarketingReelRoute
   '/products/$id': typeof ProductsIdRoute
   '/products/add': typeof ProductsAddRoute
+  '/advisor/': typeof AdvisorIndexRoute
   '/ai-studio/': typeof AiStudioIndexRoute
   '/finance/': typeof FinanceIndexRoute
   '/inventory/': typeof InventoryIndexRoute
@@ -206,16 +260,22 @@ export interface FileRouteTypes {
     | '/business'
     | '/dashboard'
     | '/notifications'
+    | '/advisor/competitors'
+    | '/advisor/market'
+    | '/advisor/swot'
     | '/ai-studio/catalog'
     | '/ai-studio/content'
     | '/ai-studio/image'
     | '/ai-studio/pricing'
+    | '/finance/emi'
     | '/finance/pnl'
+    | '/finance/scheme'
     | '/inventory/forecast'
     | '/marketing/advertisement'
     | '/marketing/reel'
     | '/products/$id'
     | '/products/add'
+    | '/advisor/'
     | '/ai-studio/'
     | '/finance/'
     | '/inventory/'
@@ -228,16 +288,22 @@ export interface FileRouteTypes {
     | '/business'
     | '/dashboard'
     | '/notifications'
+    | '/advisor/competitors'
+    | '/advisor/market'
+    | '/advisor/swot'
     | '/ai-studio/catalog'
     | '/ai-studio/content'
     | '/ai-studio/image'
     | '/ai-studio/pricing'
+    | '/finance/emi'
     | '/finance/pnl'
+    | '/finance/scheme'
     | '/inventory/forecast'
     | '/marketing/advertisement'
     | '/marketing/reel'
     | '/products/$id'
     | '/products/add'
+    | '/advisor'
     | '/ai-studio'
     | '/finance'
     | '/inventory'
@@ -250,16 +316,22 @@ export interface FileRouteTypes {
     | '/business'
     | '/dashboard'
     | '/notifications'
+    | '/advisor/competitors'
+    | '/advisor/market'
+    | '/advisor/swot'
     | '/ai-studio/catalog'
     | '/ai-studio/content'
     | '/ai-studio/image'
     | '/ai-studio/pricing'
+    | '/finance/emi'
     | '/finance/pnl'
+    | '/finance/scheme'
     | '/inventory/forecast'
     | '/marketing/advertisement'
     | '/marketing/reel'
     | '/products/$id'
     | '/products/add'
+    | '/advisor/'
     | '/ai-studio/'
     | '/finance/'
     | '/inventory/'
@@ -273,16 +345,22 @@ export interface RootRouteChildren {
   BusinessRoute: typeof BusinessRoute
   DashboardRoute: typeof DashboardRoute
   NotificationsRoute: typeof NotificationsRoute
+  AdvisorCompetitorsRoute: typeof AdvisorCompetitorsRoute
+  AdvisorMarketRoute: typeof AdvisorMarketRoute
+  AdvisorSwotRoute: typeof AdvisorSwotRoute
   AiStudioCatalogRoute: typeof AiStudioCatalogRoute
   AiStudioContentRoute: typeof AiStudioContentRoute
   AiStudioImageRoute: typeof AiStudioImageRoute
   AiStudioPricingRoute: typeof AiStudioPricingRoute
+  FinanceEmiRoute: typeof FinanceEmiRoute
   FinancePnlRoute: typeof FinancePnlRoute
+  FinanceSchemeRoute: typeof FinanceSchemeRoute
   InventoryForecastRoute: typeof InventoryForecastRoute
   MarketingAdvertisementRoute: typeof MarketingAdvertisementRoute
   MarketingReelRoute: typeof MarketingReelRoute
   ProductsIdRoute: typeof ProductsIdRoute
   ProductsAddRoute: typeof ProductsAddRoute
+  AdvisorIndexRoute: typeof AdvisorIndexRoute
   AiStudioIndexRoute: typeof AiStudioIndexRoute
   FinanceIndexRoute: typeof FinanceIndexRoute
   InventoryIndexRoute: typeof InventoryIndexRoute
@@ -327,6 +405,34 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof NotificationsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/advisor/': {
+      id: '/advisor/'
+      path: '/advisor'
+      fullPath: '/advisor/'
+      preLoaderRoute: typeof AdvisorIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/advisor/competitors': {
+      id: '/advisor/competitors'
+      path: '/advisor/competitors'
+      fullPath: '/advisor/competitors'
+      preLoaderRoute: typeof AdvisorCompetitorsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/advisor/market': {
+      id: '/advisor/market'
+      path: '/advisor/market'
+      fullPath: '/advisor/market'
+      preLoaderRoute: typeof AdvisorMarketRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/advisor/swot': {
+      id: '/advisor/swot'
+      path: '/advisor/swot'
+      fullPath: '/advisor/swot'
+      preLoaderRoute: typeof AdvisorSwotRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/ai-studio/': {
       id: '/ai-studio/'
       path: '/ai-studio'
@@ -369,11 +475,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FinanceIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/finance/emi': {
+      id: '/finance/emi'
+      path: '/finance/emi'
+      fullPath: '/finance/emi'
+      preLoaderRoute: typeof FinanceEmiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/finance/pnl': {
       id: '/finance/pnl'
       path: '/finance/pnl'
       fullPath: '/finance/pnl'
       preLoaderRoute: typeof FinancePnlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/finance/scheme': {
+      id: '/finance/scheme'
+      path: '/finance/scheme'
+      fullPath: '/finance/scheme'
+      preLoaderRoute: typeof FinanceSchemeRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/inventory/': {
@@ -441,16 +561,22 @@ const rootRouteChildren: RootRouteChildren = {
   BusinessRoute: BusinessRoute,
   DashboardRoute: DashboardRoute,
   NotificationsRoute: NotificationsRoute,
+  AdvisorCompetitorsRoute: AdvisorCompetitorsRoute,
+  AdvisorMarketRoute: AdvisorMarketRoute,
+  AdvisorSwotRoute: AdvisorSwotRoute,
   AiStudioCatalogRoute: AiStudioCatalogRoute,
   AiStudioContentRoute: AiStudioContentRoute,
   AiStudioImageRoute: AiStudioImageRoute,
   AiStudioPricingRoute: AiStudioPricingRoute,
+  FinanceEmiRoute: FinanceEmiRoute,
   FinancePnlRoute: FinancePnlRoute,
+  FinanceSchemeRoute: FinanceSchemeRoute,
   InventoryForecastRoute: InventoryForecastRoute,
   MarketingAdvertisementRoute: MarketingAdvertisementRoute,
   MarketingReelRoute: MarketingReelRoute,
   ProductsIdRoute: ProductsIdRoute,
   ProductsAddRoute: ProductsAddRoute,
+  AdvisorIndexRoute: AdvisorIndexRoute,
   AiStudioIndexRoute: AiStudioIndexRoute,
   FinanceIndexRoute: FinanceIndexRoute,
   InventoryIndexRoute: InventoryIndexRoute,
