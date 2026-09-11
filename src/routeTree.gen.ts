@@ -11,10 +11,15 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AnalyticsRouteImport } from './routes/analytics'
+import { Route as B2bRouteImport } from './routes/b2b'
 import { Route as BusinessRouteImport } from './routes/business'
+import { Route as CustomersRouteImport } from './routes/customers'
 import { Route as DashboardRouteImport } from './routes/dashboard'
+import { Route as LearningRouteImport } from './routes/learning'
+import { Route as LogisticsRouteImport } from './routes/logistics'
 import { Route as NotificationsRouteImport } from './routes/notifications'
 import { Route as OrdersRouteImport } from './routes/orders'
+import { Route as PresenceRouteImport } from './routes/presence'
 import { Route as AdvisorIndexRouteImport } from './routes/advisor.index'
 import { Route as AdvisorCompetitorsRouteImport } from './routes/advisor.competitors'
 import { Route as AdvisorMarketRouteImport } from './routes/advisor.market'
@@ -51,14 +56,34 @@ const AnalyticsRoute = AnalyticsRouteImport.update({
   path: '/analytics',
   getParentRoute: () => rootRouteImport,
 } as any)
+const B2bRoute = B2bRouteImport.update({
+  id: '/b2b',
+  path: '/b2b',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const BusinessRoute = BusinessRouteImport.update({
   id: '/business',
   path: '/business',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CustomersRoute = CustomersRouteImport.update({
+  id: '/customers',
+  path: '/customers',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DashboardRoute = DashboardRouteImport.update({
   id: '/dashboard',
   path: '/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LearningRoute = LearningRouteImport.update({
+  id: '/learning',
+  path: '/learning',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LogisticsRoute = LogisticsRouteImport.update({
+  id: '/logistics',
+  path: '/logistics',
   getParentRoute: () => rootRouteImport,
 } as any)
 const NotificationsRoute = NotificationsRouteImport.update({
@@ -69,6 +94,11 @@ const NotificationsRoute = NotificationsRouteImport.update({
 const OrdersRoute = OrdersRouteImport.update({
   id: '/orders',
   path: '/orders',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PresenceRoute = PresenceRouteImport.update({
+  id: '/presence',
+  path: '/presence',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AdvisorIndexRoute = AdvisorIndexRouteImport.update({
@@ -200,10 +230,15 @@ const StorePreviewRoute = StorePreviewRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/analytics': typeof AnalyticsRoute
+  '/b2b': typeof B2bRoute
   '/business': typeof BusinessRoute
+  '/customers': typeof CustomersRoute
   '/dashboard': typeof DashboardRoute
+  '/learning': typeof LearningRoute
+  '/logistics': typeof LogisticsRoute
   '/notifications': typeof NotificationsRoute
   '/orders': typeof OrdersRoute
+  '/presence': typeof PresenceRoute
   '/advisor/competitors': typeof AdvisorCompetitorsRoute
   '/advisor/market': typeof AdvisorMarketRoute
   '/advisor/swot': typeof AdvisorSwotRoute
@@ -233,10 +268,15 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/analytics': typeof AnalyticsRoute
+  '/b2b': typeof B2bRoute
   '/business': typeof BusinessRoute
+  '/customers': typeof CustomersRoute
   '/dashboard': typeof DashboardRoute
+  '/learning': typeof LearningRoute
+  '/logistics': typeof LogisticsRoute
   '/notifications': typeof NotificationsRoute
   '/orders': typeof OrdersRoute
+  '/presence': typeof PresenceRoute
   '/advisor/competitors': typeof AdvisorCompetitorsRoute
   '/advisor/market': typeof AdvisorMarketRoute
   '/advisor/swot': typeof AdvisorSwotRoute
@@ -267,10 +307,15 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/analytics': typeof AnalyticsRoute
+  '/b2b': typeof B2bRoute
   '/business': typeof BusinessRoute
+  '/customers': typeof CustomersRoute
   '/dashboard': typeof DashboardRoute
+  '/learning': typeof LearningRoute
+  '/logistics': typeof LogisticsRoute
   '/notifications': typeof NotificationsRoute
   '/orders': typeof OrdersRoute
+  '/presence': typeof PresenceRoute
   '/advisor/competitors': typeof AdvisorCompetitorsRoute
   '/advisor/market': typeof AdvisorMarketRoute
   '/advisor/swot': typeof AdvisorSwotRoute
@@ -302,10 +347,15 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/analytics'
+    | '/b2b'
     | '/business'
+    | '/customers'
     | '/dashboard'
+    | '/learning'
+    | '/logistics'
     | '/notifications'
     | '/orders'
+    | '/presence'
     | '/advisor/competitors'
     | '/advisor/market'
     | '/advisor/swot'
@@ -335,10 +385,15 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/analytics'
+    | '/b2b'
     | '/business'
+    | '/customers'
     | '/dashboard'
+    | '/learning'
+    | '/logistics'
     | '/notifications'
     | '/orders'
+    | '/presence'
     | '/advisor/competitors'
     | '/advisor/market'
     | '/advisor/swot'
@@ -368,10 +423,15 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/analytics'
+    | '/b2b'
     | '/business'
+    | '/customers'
     | '/dashboard'
+    | '/learning'
+    | '/logistics'
     | '/notifications'
     | '/orders'
+    | '/presence'
     | '/advisor/competitors'
     | '/advisor/market'
     | '/advisor/swot'
@@ -402,10 +462,15 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AnalyticsRoute: typeof AnalyticsRoute
+  B2bRoute: typeof B2bRoute
   BusinessRoute: typeof BusinessRoute
+  CustomersRoute: typeof CustomersRoute
   DashboardRoute: typeof DashboardRoute
+  LearningRoute: typeof LearningRoute
+  LogisticsRoute: typeof LogisticsRoute
   NotificationsRoute: typeof NotificationsRoute
   OrdersRoute: typeof OrdersRoute
+  PresenceRoute: typeof PresenceRoute
   AdvisorCompetitorsRoute: typeof AdvisorCompetitorsRoute
   AdvisorMarketRoute: typeof AdvisorMarketRoute
   AdvisorSwotRoute: typeof AdvisorSwotRoute
@@ -449,6 +514,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AnalyticsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/b2b': {
+      id: '/b2b'
+      path: '/b2b'
+      fullPath: '/b2b'
+      preLoaderRoute: typeof B2bRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/business': {
       id: '/business'
       path: '/business'
@@ -456,11 +528,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BusinessRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/customers': {
+      id: '/customers'
+      path: '/customers'
+      fullPath: '/customers'
+      preLoaderRoute: typeof CustomersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/dashboard': {
       id: '/dashboard'
       path: '/dashboard'
       fullPath: '/dashboard'
       preLoaderRoute: typeof DashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/learning': {
+      id: '/learning'
+      path: '/learning'
+      fullPath: '/learning'
+      preLoaderRoute: typeof LearningRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/logistics': {
+      id: '/logistics'
+      path: '/logistics'
+      fullPath: '/logistics'
+      preLoaderRoute: typeof LogisticsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/notifications': {
@@ -475,6 +568,13 @@ declare module '@tanstack/react-router' {
       path: '/orders'
       fullPath: '/orders'
       preLoaderRoute: typeof OrdersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/presence': {
+      id: '/presence'
+      path: '/presence'
+      fullPath: '/presence'
+      preLoaderRoute: typeof PresenceRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/advisor/': {
@@ -658,10 +758,15 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AnalyticsRoute: AnalyticsRoute,
+  B2bRoute: B2bRoute,
   BusinessRoute: BusinessRoute,
+  CustomersRoute: CustomersRoute,
   DashboardRoute: DashboardRoute,
+  LearningRoute: LearningRoute,
+  LogisticsRoute: LogisticsRoute,
   NotificationsRoute: NotificationsRoute,
   OrdersRoute: OrdersRoute,
+  PresenceRoute: PresenceRoute,
   AdvisorCompetitorsRoute: AdvisorCompetitorsRoute,
   AdvisorMarketRoute: AdvisorMarketRoute,
   AdvisorSwotRoute: AdvisorSwotRoute,
